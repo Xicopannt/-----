@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="test.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тест: Вред курения</title>
+</head>
+<body>
+  <div class="test-container">
+    <h2>Тест: Знаешь ли ты всё о вреде курения?</h2>
+    <form id="testForm">
+      <div class="question">
+        <p>1. Какой из следующих факторов является психологической причиной начала курения подростками?</p>
+        <label>
+          <input type="radio" name="q1" value="1" required>
+          Любопытство: желание попробовать запретное
+        </label>
+        <label>
+          <input type="radio" name="q1" value="0">
+          Желание доказать, что взрослеть можно и без курения
+        </label>
+        <label>
+          <input type="radio" name="q1" value="0">
+          Уверенность в своем здоровье
+        </label>
+        <label>
+          <input type="radio" name="q1" value="0">
+          Стремление к спортивным достижениям
+        </label>
+      </div>
+      <div class="question">
+        <p>2. Как маркетинг способствует популяризации курения среди подростков?</p>
+        <label>
+          <input type="radio" name="q2" value="0" required>
+          Демонизирует курение и предупреждает о вреде
+        </label>
+        <label>
+          <input type="radio" name="q2" value="1">
+          Романтизирует курение через фильмы, блогеров и соцсети
+        </label>
+        <label>
+          <input type="radio" name="q2" value="0">
+          Поощряет здоровый образ жизни
+        </label>
+        <label>
+          <input type="radio" name="q2" value="0">
+          Пропагандирует отказ от курения только среди взрослых
+        </label>
+      </div>
+      <div class="question">
+        <p>3. Что из нижеперечисленного является негативным следствием пассивного курения по содержанию сайта?</p>
+        <label>
+          <input type="radio" name="q3" value="0" required>
+          Улучшение концентрации внимания
+        </label>
+        <label>
+          <input type="radio" name="q3" value="0">
+          Снижение риска сердечных заболеваний
+        </label>
+        <label>
+          <input type="radio" name="q3" value="1">
+          Повышение риска инфаркта даже от кратковременного вдыхания дыма
+        </label>
+        <label>
+          <input type="radio" name="q3" value="0">
+          Увеличение скорости реакции
+        </label>
+      </div>
+      <div class="question">
+        <p>4. Как курение влияет на риск сердечно-сосудистых заболеваний, согласно информации на сайте?</p>
+        <label>
+          <input type="radio" name="q4" value="0" required>
+          Снижает риск сердечного приступа
+        </label>
+        <label>
+          <input type="radio" name="q4" value="0">
+          Не оказывает влияния
+        </label>
+        <label>
+          <input type="radio" name="q4" value="1">
+          Увеличивает риск сердечного приступа в 2–4 раза
+        </label>
+        <label>
+          <input type="radio" name="q4" value="0">
+          Увеличивает риск инсульта в 5 раз
+        </label>
+      </div>
+      <button type="submit">Отправить</button>
+    </form>
+    <div id="testResult" style="display:none;">
+      <h3>Результат теста:</h3>
+      <p id="resultText"></p>
+      <a href="main.html">Вернуться на главную</a>
+    </div>
+  </div>
+
+  <script>
+    const testForm = document.getElementById('testForm');
+    const testResult = document.getElementById('testResult');
+    const resultText = document.getElementById('resultText');
+
+    testForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(testForm);
+      let score = 0;
+      let total = 0;
+      
+      for (let [key, value] of formData.entries()) {
+        total += 1;
+        score += parseInt(value, 10);
+      }
+      
+      resultText.textContent = `Вы ответили правильно на ${score} из ${total} вопросов.`;
+      testResult.style.display = 'block';
+      testForm.style.display = 'none';
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
