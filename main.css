@@ -58,6 +58,7 @@ a {
   color: #0077cc;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -83,6 +84,7 @@ a:hover {
   margin-top: 2rem;
   color: #333;
 }
+
 .info-block,
 .container > div {
   background: #f2f5f9;
@@ -101,11 +103,13 @@ a:hover {
   border: 1px solid rgba(123, 97, 255, 0.08);
   backdrop-filter: blur(3px);
 }
+
 .info-block.show,
 .container > div.show {
   opacity: 1;
   transform: translateY(0);
 }
+
 .info-block:hover,
 .container > div:hover {
   transform: translateY(-6px);
@@ -114,6 +118,7 @@ a:hover {
     12px 12px 30px rgba(0, 0, 0, 0.12),
     -8px -8px 30px rgba(255, 255, 255, 0.6);
 }
+
 .info-block img,
 .container > div img {
   width: 90px;
@@ -124,9 +129,11 @@ a:hover {
   box-shadow: 0 0 20px rgba(123, 97, 255, 0.15);
   border: 3px solid #ffffff;
 }
+
 .info-block img[src*="brain.png"] {
   box-shadow: none;
 }
+
 .custom-modal {
   position: fixed;
   z-index: 100;
@@ -175,6 +182,7 @@ a:hover {
     opacity: 1;
   }
 }
+
 .close {
   color: #aaa;
   position: absolute;
@@ -184,15 +192,18 @@ a:hover {
   font-weight: bold;
   cursor: pointer;
 }
+
 .close:hover,
 .close:focus {
   color: #000;
   text-decoration: none;
 }
+
 .actions {
   margin-top: 2rem;
   text-align: center;
 }
+
 .custom-btn {
   display: inline-block;
   padding: 0.7rem 1.2rem;
@@ -211,6 +222,7 @@ a:hover {
   transform: translateY(-3px);
   text-decoration: none;
 }
+
 .svg-background {
   position: fixed;
   top: 0; left: 0;
@@ -218,6 +230,7 @@ a:hover {
   overflow: hidden;
   z-index: -1;
 }
+
 .svg-background::after {
   content: "";
   position: absolute;
@@ -226,6 +239,7 @@ a:hover {
   pointer-events: none;
   z-index: 1;
 }
+
 svg {
   width: 100%;
   height: 100%;
@@ -241,3 +255,70 @@ svg {
   );
 }
 
+/* --- Слайд-шоу внутри модального окна --- */
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow:
+    8px 8px 20px rgba(0, 0, 0, 0.1),
+    -8px -8px 20px rgba(255, 255, 255, 0.5);
+  background: #f2f5f9;
+}
+
+.carousel-inner {
+  border-radius: 15px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none !important;
+  background: none;
+  width: auto;
+  height: auto;
+}
+
+
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+  content: '';
+}
+
+.carousel-control-prev::before {
+  content: '‹';
+  font-size: 3rem;
+  color: #7b61ff;
+  font-weight: bold;
+}
+
+.carousel-control-next::before {
+  content: '›';
+  font-size: 3rem;
+  color: #7b61ff;
+  font-weight: bold;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #7b61ff;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.carousel-indicators .active {
+  background-color: #c3daff;
+}
